@@ -8,6 +8,11 @@ simple angular and firebase 8 app uses rxjs observales, async validators, templa
 2. open git bash or console of IDE of choice
 3. install node modules   npm install
 4. run ng s 
+5. sign up or check what will happen if your not registerd
+6. login try typing wrong email or password or both then try true
+7. upload your profile picture
+8. interact with others on platform putting like
+9. make another account and send the previous frient request
 
 ### samples of content
 #### interfaces
