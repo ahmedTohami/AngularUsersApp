@@ -1,0 +1,29 @@
+<div class="post">
+  <h1>{{post.title}}</h1>
+  <h6>{{post.submitDate | date }}</h6>
+  <p *ngIf="!editModeEnabled">{{post.body}}</p>
+  <div class="edit-post" *ngIf="editModeEnabled">
+    <form (ngSubmit)="savePost(editPostForm.value)" #editPostForm="ngForm">
+      <textarea name="body" id="body" ngModel #body=ngModel></textarea>
+      <button class="far fa fa-save" type="submit" [disabled]="editPostForm.invalid"></button>
+    </form>
+  </div>
+  <div *ngIf="!editModeEnabled" class="statistics">
+    <i class="far fa fa-thumbs-up" (mouseover)="showLikes()" (mouseleave)="hideLikes()"></i>
+    <span class="likesCount">{{post.peopleWhoLikesThis.length}}</span>
+    <div class="likes">
+      <div *ngFor="let guy of  post.peopleWhoLikesThis" class="like">{{guy}}</div>
+    </div>
+
+    <i class="far fa fa-edit" (click)="edit()"></i>
+    <i class="fas fa fa-trash" (click)="enableDelete()">
+
+    </i>
+    <div *ngIf="deleteRequested" class="delete-modal">
+      <p>are you sure you want to delete your post?</p>
+      <i class="fas fa fa-check-circle" (click)="delete()"></i>
+      <i class="fas fa fa-times-circle" (click)="disableDelete()"></i>
+    </div>
+  </div>
+  
+</div>

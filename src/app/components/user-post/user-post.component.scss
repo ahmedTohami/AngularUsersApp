@@ -1,0 +1,228 @@
+
+@keyframes fuzzy{
+    0%{
+        transform: rotate(20deg);
+    }
+    50%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(-20deg);
+    }
+}
+
+
+.post {
+    width: 95%;
+    background: gray;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px;
+    position: relative;
+    box-shadow: -5px 4px 14px 0px rgba(0, 0, 0, 0.75);
+
+    h1,
+    h6,
+    p {
+        border-bottom: 1px solid #fff;
+    }
+
+    .statistics {
+        position: relative;
+        min-height: 20px;
+
+        .fa-thumbs-up {
+            position: absolute;
+            left: 95%;
+            transition: 0.3s ease-in;
+            transition-property: color;
+        }
+        .fa-thumbs-up:hover {
+            transition: 0.3s ease-in;
+            transition-property: color;
+            color: red;
+            transform-origin: center center;
+            animation: fuzzy 1s 1;
+        }
+
+
+        .likesCount {
+            position: absolute;
+            left: 94%;
+            top: -4px;
+
+            @media screen and (max-width: 1200px) {
+                left: 93%;
+            }
+
+            @media screen and (max-width: 700px) {
+                left: 92%;
+            }
+
+            @media screen and (max-width: 450px) {
+                left: 90%;
+            }
+
+            @media screen and (max-width: 300px) {
+                left: 85%;
+            }
+        }
+
+        .likes {
+            position: absolute;
+            width: 200px;
+            z-index: 9999;
+            min-height: 100px;
+            background: darken(gray, 10%);
+            top: 1%;
+            right: 6%;
+            display: block;
+            visibility: visible;
+            opacity: 0;
+            transition: 0.3s ease-in;
+            transition-property: opacity, box-shadow;
+            border-radius: 4px;
+
+            .like {
+                padding: 5px;
+                border-bottom: 1px solid #fff;
+            }
+        }
+
+        .likes.active {
+            opacity: 1;
+            box-shadow: -5px 4px 14px 0px rgba(0, 0, 0, 0.75);
+        }
+
+        .fa-edit,
+        .fa-trash {
+            margin-left: 5px;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        .fa-edit:hover {
+            transition: color 0.3s ease-in;
+            color: goldenrod;
+        }
+
+        .fa-trash:hover{
+            transition: color 0.3s ease-in;
+            color: lighten(red, 10%);
+        }
+        
+    }
+
+}
+
+.fa:not(:hover){
+    color: #fff;
+}
+
+.edit-post {
+
+    form {
+        width: 100%;
+        min-height: 100px;
+
+        textarea {
+            width: 100%;
+            min-height: 90px;
+            color: #000;
+            background: transparent;
+            border-radius: 10px;
+            outline: none;
+            transition-property: box-shadow , border;
+            transition: 0.3s ease-in;
+
+            &:focus {
+                box-shadow: -5px 4px 14px 0px rgba(0, 0, 0, 0.75);
+                border:2px solid #fff; 
+            }
+        }
+
+        button {
+            background: transparent;
+            color: #fff;
+            border: none;
+            transition-property: color;
+            transition: 0.3s ease-in;
+
+            &:hover {
+                color: lighten(green, 10%);
+            }
+
+            &:focus {
+                color: lighten(green, 10%);
+            }
+        }
+    }
+}
+
+
+.delete-modal{
+    z-index: 9999;
+    width: 30%;  
+    left: 4%;
+    min-height: 100px;
+    background: darken(#fff, 30%);
+    border: 2px solid #fff;
+    border-radius: 10px;
+    position: absolute;
+
+
+    @media screen and (max-width: 1200px) {
+        left: 8%;
+        width: 30%;  
+    }
+    @media screen and (max-width: 710px) {
+        left: 10%;
+        width: 60%;  
+    }
+
+    @media screen and (max-width: 650px) {
+        left: 10%;
+        width: 40%;  
+    }
+
+    @media screen and (max-width: 480px) {
+        left: 15%;
+        width: 70%;  
+    }
+
+
+    @media screen and (max-width: 450px) {
+        left: 15%;
+        width: 60%;  
+    }
+
+    @media screen and (max-width: 350px) {
+        left: 15%;
+        width: 80%;  
+    }
+
+    
+
+    p{
+        padding: 10px;
+        color: #fff;
+    }
+
+    .fa-check-circle ,.fa-times-circle{
+        margin-left: 5px;
+        margin-bottom: 5px;
+    }
+
+    .fa-check-circle:hover{
+        transition: 0.3s ease-in;
+        transition-property: color;
+        color: red;
+    }
+    .fa-times-circle:hover{
+        transition: 0.3s ease-in;
+        transition-property: color;
+        color: green;
+    }
+}
+

@@ -1,0 +1,40 @@
+<div *ngIf="user" class="contianer go-to-home">
+    <a  (click)="gotoHome()">Preview all Users Post</a> 
+  </div>
+
+<div *ngIf="!userAdded">
+  <div class="signup">
+    <form class="signup-form" [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm.value)">
+      <input type="name" placeholder="name" formControlName="name" form name="name" id="name">
+      <div *ngIf="name.pending">checking db.....</div>
+
+      <div *ngIf="name.touched && name.errors" class="alert alert-danger">
+        <div *ngIf="name.errors.required">please enter your name</div>
+        <div *ngIf="!name.errors.UserNameAvailable">
+          name already used
+        </div>
+      </div>
+      <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="email" name="email"
+        formControlName="email" id="email">
+      <div *ngIf="email.pending">checking db.....</div>
+
+      <div *ngIf="email.touched && email.errors" class="alert alert-danger">
+        <div *ngIf="email.errors.required">please enter your email</div>
+        <div *ngIf="email.errors.pattern">please enter valid email</div>
+        <div *ngIf="!email.errors.UserEmailAvailable">
+          email already used
+        </div>
+      </div>
+      <input type="password" placeholder="password" name="password" id="password"
+        pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" formControlName="password">
+      <div *ngIf="password.touched && password.errors" class="alert alert-danger">
+        <div *ngIf="password.errors.required">please enter your password</div>
+        <div *ngIf="password.errors.pattern">password must contain number , uppercase and lowercase</div>
+      </div>
+      <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+    </form>
+  </div>
+</div>
+
+
+<app-user *ngIf="userAdded" [user]="user"></app-user>

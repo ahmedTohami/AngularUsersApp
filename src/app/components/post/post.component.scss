@@ -1,0 +1,109 @@
+
+@keyframes fuzzy{
+    0%{
+        transform: rotate(20deg);
+    }
+    50%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(-20deg);
+    }
+}
+
+
+.post {
+    width: 95%;
+    background: gray;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px;
+    position: relative;
+    box-shadow: -5px 4px 14px 0px rgba(0, 0, 0, 0.75);
+
+    h1,
+    h6,
+    p {
+        border-bottom: 1px solid #fff;
+    }
+
+    .statistics {
+        position: relative;
+        min-height: 20px;
+
+        .fa-thumbs-up {
+            position: absolute;
+            left: 95%;
+        }
+
+        .fa-users{
+            position: absolute;
+            left: 2%;
+            color: #fff;
+        }
+        .fa-users:hover {
+            transition: 0.3s ease-in;
+            transition-property: color;
+            color: red;
+            transform-origin: center center;
+            animation: fuzzy 1s 1;
+        }
+
+        .fa-thumbs-up:hover {
+            transition: 0.3s ease-in;
+            transition-property: color;
+            color: red;
+            transform-origin: center center;
+            animation: fuzzy 1s 1;
+        }
+
+        .likesCount {
+            position: absolute;
+            left: 94%;
+            top: -4px;
+
+            @media screen and (max-width: 1200px) {
+                left: 93%;
+            }
+
+            @media screen and (max-width: 700px) {
+                left: 92%;
+            }
+
+            @media screen and (max-width: 450px) {
+                left: 90%;
+            }
+
+            @media screen and (max-width: 300px) {
+                left: 85%;
+            }
+        }
+
+        .likes {
+            position: absolute;
+            z-index: 9999;
+            width: 200px;
+            min-height: 100px;
+            background: darken(gray, 10%);
+            top: 1%;
+            right: 6%;
+            display: block;
+            visibility: visible;
+            opacity: 0;
+            transition: 0.3s ease-in;
+            transition-property: opacity, box-shadow;
+            border-radius: 4px;
+
+            .like {
+                padding: 5px;
+                border-bottom: 1px solid #fff;
+            }
+        }
+
+        .likes.active {
+            opacity: 1;
+            box-shadow: -5px 4px 14px 0px rgba(0, 0, 0, 0.75);
+        }
+    }
+}

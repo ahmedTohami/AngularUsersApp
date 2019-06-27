@@ -1,0 +1,42 @@
+<div class="user-image">
+  <div class="img" [ngStyle]="{'background-image': 'url(' + user.image + ')'}">
+  </div>
+</div>
+
+<div *ngIf="!successfullyUploaded" class="upload">
+  <input type="file" id="photo" placeholder="Upload file..." (change)="fileChangeEvent($event)">
+  <button type="button" id="uploadButton" (click)="uploadFile()">upload</button>
+</div>
+<div class="user">
+  <h1>{{user.name}}</h1>
+  <h6>{{user.subscribtionDate}}</h6>
+  <p> {{user.about}}</p>
+</div>
+
+<div class="container">
+  <app-user-post   *ngFor="let post of user.posts" [post]="post" [userid]="user.id"></app-user-post>
+</div>
+
+<div *ngIf="user.comingSentRequest.length>0" class="container coming-requests">
+  <h1>coming requests</h1>
+  <friend-request *ngFor="let request of user.comingSentRequest" [request]="request" [editModeEnable]="true">
+  </friend-request>
+</div>
+
+<div *ngIf="user.sentFriendRequests.length>0" class="container sent-requests">
+  <h1>sent requests</h1>
+  <friend-request *ngFor="let request of user.sentFriendRequests" [request]="request" [editModeEnable]="false">
+  </friend-request>
+</div>
+
+
+<div class=" container">
+  <div class="newPost">
+    <h1>add post</h1>
+    <form (ngSubmit)="addPost(newPostForm)" #newPostForm="ngForm">
+      <textarea type="text"  name="title" id="title" ngModel #title=ngModel   placeholder="title"></textarea>
+      <textarea name="body" id="body" ngModel #body=ngModel placeholder="body"></textarea>
+      <button  type="submit" [disabled]="newPostForm.invalid">Save</button>
+    </form>
+  </div>
+</div>

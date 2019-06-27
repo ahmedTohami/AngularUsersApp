@@ -1,0 +1,16 @@
+<div class="post">
+  <h1>{{post.title}}</h1>
+  <h1><span style="color: rgb(238, 14, 152); margin-right: 5px;">Owner:</span>{{post.owner.name}}</h1>
+  <h6>{{post.submitDate | date }}</h6>
+  <p>{{post.body}}</p>
+  <div class="statistics">
+    <i class="far fa fa-thumbs-up" (click)="like()" (mouseover)="showLikes()" (mouseleave)="hideLikes()"></i>
+    <div *ngIf="currentLoggedInUser">
+      <i class="fas fa fa-users" *ngIf="currentLoggedInUser.id !== post.owner.id" (click)="sendFriendRequest()"></i>
+    </div>
+    <span class="likesCount">{{post.peopleWhoLikesThis.length}}</span>
+    <div class="likes">
+      <div *ngFor="let guy of  post.peopleWhoLikesThis" class="like">{{guy}}</div>
+    </div>
+  </div>
+</div>

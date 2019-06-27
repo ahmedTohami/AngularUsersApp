@@ -1,0 +1,15 @@
+<div class="request">
+  <h3><strong style="color: rgb(238, 14, 152);">from:</strong> {{request.from}}</h3>
+  <h3><strong style="color: rgb(238, 14, 152);">to:</strong> {{request.to}}</h3>
+  <h6><strong style="color: rgb(238, 14, 152); margin-right: 5px;">on:</strong>{{request.submitDate | date }}</h6>
+  <p>{{request.body}}</p>
+  <span *ngIf="request.status.accepted"><strong style="color: rgb(66, 238, 14); margin-right: 5px;">accepted you can
+      have chat now</strong></span>
+  <span *ngIf="request.status.rejected"><strong style="color: rgb(238, 14, 14); margin-right: 5px;">request is rejected</strong></span>
+  <span *ngIf="request.status.pending"><strong style="color: rgb(238, 234, 14); margin-right: 5px;">request is
+      pending</strong>your to {{request.to }} </span>
+  <div *ngIf="editModeEnable">
+    <button class="accept" (click)="acceptRequest()">accept</button>
+    <button class="reject" (click)="rejectRequest()">reject</button>
+  </div>
+</div>

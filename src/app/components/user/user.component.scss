@@ -1,0 +1,151 @@
+.user {
+    background: gray;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 200px;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.user-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+    position: relative;
+    margin: auto;
+    margin-top: 20px;
+
+    .img {
+        width: 200px;
+        height: 200px;
+        position: relative;
+        border-radius: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        // background-position: top left;
+    }
+}
+
+
+
+.upload {
+    width: 250px;
+    border-radius: 4px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: #fff solid 1px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    @media screen and (max-width: 900px) {
+        width: 200px;
+    }
+
+    @media screen and (max-width:600px) {
+        width: 200px;
+    }
+
+    #photo {
+        display: block;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 4px;
+        border: 1px solid #fff;
+        background: transparent;
+    }
+
+    #uploadButton {
+        display: block;
+        width: 120px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 4px;
+        background: transparent;
+        border: 1px solid #fff;
+        color: #fff;
+        background-color: gray;
+        transition: 0.3s ease-in;
+        transition-property: background-color, color;
+
+        &:hover {
+            color: gray;
+            background-color: #fff;
+        }
+    }
+}
+
+.sent-requests,
+.coming-requests {
+    margin-top: 5px;
+}
+
+
+.newPost {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    background: gray;
+    border-radius: 20px;
+    box-shadow: -5px 4px 14px 0px rgba(0, 0, 0, 0.75);
+
+
+    h1 {
+        text-transform: uppercase;
+        text-align: center;
+        margin: 5px;
+        padding: 4px;
+    }
+
+    textarea {
+        width: 60%;
+        height: 45px;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        padding: 5px;
+        margin: 4px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+    #body {
+        height: 150px;
+    }
+
+    button {
+        margin: 5px;
+        padding: 5px;
+        width: 120px;
+        height: 45px;
+        border-radius: 2px;
+        transition-property: color, background-color;
+        border: 1px solid #fff;
+        color: #fff;
+        background-color: transparent;
+        transition: 0.3s ease-in;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+
+        &:hover {
+            background-color: #fff;
+            color: gray;
+        }
+    }
+
+
+}

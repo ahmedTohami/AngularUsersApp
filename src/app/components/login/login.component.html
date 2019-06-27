@@ -1,0 +1,15 @@
+<div *ngIf="user" class="contianer go-to-home">
+  <a  (click)="gotoHome()">Preview all Users Post</a> 
+</div>
+
+
+<div *ngIf="!loggedin" class="login">
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+    <input type="email" formControlName="email" placeholder="email" name="email" id="email">
+    <input type="password" placeholder="password" formControlName="password" name="password" id="password">
+    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+  </form>
+</div>
+
+
+<app-user *ngIf="loggedin" [user]="user"></app-user>

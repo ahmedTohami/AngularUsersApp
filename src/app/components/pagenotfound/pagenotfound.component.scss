@@ -1,0 +1,23 @@
+.notfound{
+    width: 50%;
+    height: 30%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: darken(gray, 10%);
+    border-radius: 4px;
+    border: 1px solid #fff;
+
+    @media screen and (max-width:300px) {
+        height: 40%;
+        width: 70%;
+    }
+
+    p{
+        text-align: center;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 30px;
+    }
+}
